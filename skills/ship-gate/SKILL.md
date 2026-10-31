@@ -17,6 +17,10 @@ A `## Ship gate` section at the top of `planning/backlog.md` (run `setup` if the
 `planning/`). One gate per independently shipped thing; if a repo ships an Android app and a
 desktop app separately, one row per app.
 
+A repo that already has a `## Release gate` section (or another heading for the same thing) keeps
+it: read and update that section in place, with its own field names, rather than renaming it.
+Other skills in the repo may look for it by that name.
+
 ```markdown
 ## Ship gate
 
