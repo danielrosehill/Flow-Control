@@ -19,6 +19,7 @@ repository: writing, research, campaigns, documentation.
 | `setup` | Adds a lightweight `planning/` scaffold to an existing repo (inbox, backlog with current and next sprint, ideas, decisions) and a short section in `CLAUDE.md`/`AGENTS.md` so capture fires without being named. Reuses tracking that's already there. |
 | `plan-sprint` | Opens the next sprint from queued items, writes a full sprint file (goal, evidence, done-when, targets with baselines, task lists per area or platform) for a fresh session to run, extends a sprint with another task list, and closes sprints. |
 | `ship-gate` | Decides when work ships: on your word, when listed items are done, on a date, or each change (release-to-test). Holds releases and keeps a waiting-to-ship list until the gate opens, then ships the sprint once. |
+| `release-policy` | Sets the repo's standing release policy from a template: **post-facto** (release each change, update your installed copy, test the real thing, fix forward) or **classic** (build and test locally, release what passed), or custom. Covers when to release and when not, version scheme and bump, release record with dates, QA order and sign-off. |
 | `next` | "What's next / where are we": brings the files up to date (done items, inbox), reports sprint progress and what's waiting to ship, and picks one next item. |
 
 ## Priorities decide placement
@@ -39,12 +40,21 @@ planning/
   inbox.md       untriaged captures ("just park it")
   backlog.md     ship gate, current sprint, next sprint, backlog, ideas, waiting to ship
   decisions.md   decisions, newest first
+  policy.md      flow policy: standing instructions for this repo (release policy, ...)
   sprints/       full sprint files, when a sprint needs one
 ```
 
 Every item has one id (`T-<n>`) for life, whichever section or category it moves to. Repos that
 already track work (a `TODO.md`, GitHub Issues, their own ids) keep their system; the skills file
 into it.
+
+## Flow policy
+
+`planning/policy.md` is how the agent remembers instructions that apply to this one project:
+the release policy, plus standing rules you give it ("from now on in this repo, run the tests
+before every commit"). The repo's `CLAUDE.md`/`AGENTS.md` points to it, so it holds in every
+session without being repeated, and it travels with the repo instead of living in one machine's
+memory.
 
 ## Example
 

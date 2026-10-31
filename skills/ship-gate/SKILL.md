@@ -11,6 +11,10 @@ repo before anything else (CI workflow on tag or version bump, a release script,
 publish command, sending a document); write it in one line in the gate. A repo's own docs on *how*
 to ship always apply; this skill decides only *when*.
 
+The repo's standing **release policy** (`## Release policy` in `planning/policy.md`, set by
+`release-policy`) gives the default gate mode, the version bump and the QA order. Read it first.
+The gate is this sprint's state; the user's words for this sprint override the policy's default.
+
 ## Where the gate lives
 
 A `## Ship gate` section at the top of `planning/backlog.md` (run `setup` if there's no
@@ -63,16 +67,19 @@ moves, and when a hotfix may go early.
 
 ## Before any ship step
 
-1. Read the gate. **No gate:** commit and push, don't ship, and ask once: "Ship now, or hold for
-   the sprint?" Write the answer as a gate.
+1. Read the gate and the release policy. **No gate:** if the policy sets a default mode, write
+   the gate in that mode and go on. Otherwise commit and push, don't ship, and ask once: "Ship now,
+   or hold for the sprint?" Write the answer as a gate, and mention `release-policy` in one line.
 2. **Not met:** stop before the ship step, add the work to **Waiting to ship**, commit, push, and
    say in one line that it's held and what the condition is.
-3. **Met** (or the user says the sprint is done): run the repo's ship procedure once for everything
-   in **Waiting to ship**, write that list into the changelog or release notes the repo keeps, and
+3. **Met** (or the user says the sprint is done): run the policy's **QA order** around the repo's ship
+   procedure (the steps before shipping, the ship step once for everything in **Waiting to ship**,
+   then the steps after, such as updating the user's local copy), write that list into the changelog or release notes the repo keeps, and
    verify it actually shipped: check the CI run, the published release or the store listing, not
    just that the tag was pushed.
 4. Then close the sprint (`plan-sprint`, "Close a sprint"): empty **Waiting to ship**, and reset the
-   gate to **on-word** for the next sprint unless the user said otherwise.
+   gate to the policy's **Release when** mode (or **on-word** if there's no policy) unless the user
+   said otherwise.
 
 A bug in the shipped version: fix, commit, push, add to **Waiting to ship**. Ship early only under
-the hotfix rule.
+the hotfix rule; the policy's **Broken release** row says whether to fix forward or roll back.

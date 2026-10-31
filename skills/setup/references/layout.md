@@ -12,6 +12,7 @@ planning/
   inbox.md       raw captures not yet triaged
   backlog.md     ship gate, current sprint, next sprint, backlog, ideas
   decisions.md   decisions, newest first
+  policy.md      flow policy: standing agent instructions for this repo (release policy, ...)
   sprints/
     README.md    index of sprint files
     YYYY-MM-DD-<slug>.md   one per defined sprint (plan-sprint)
@@ -126,6 +127,29 @@ Newest first.
 - Consequence: <what changes because of it>
 ```
 
+## policy.md
+
+The flow policy: persistent instructions for the agent, scoped to this repo only. Every
+flow-control skill reads it first, and the `## Flow control` section in `CLAUDE.md`/`AGENTS.md`
+points to it, so a rule set once holds in every later session. It differs from `decisions.md`:
+a decision records what was decided about the project; the policy says how the agent works here.
+
+```markdown
+# Flow policy
+
+Created YYYY-MM-DD by flow-control setup. Standing instructions for agents working in this repo.
+They hold across sessions until the user changes them; the user's words in a session override
+them for that one occasion only.
+
+## Release policy
+
+(none set; see the release-policy skill)
+
+## Standing instructions
+
+- YYYY-MM-DD: <the instruction, in the user's words where short>
+```
+
 ## Public repositories
 
 If the repo is public, `planning/README.md` carries this rule, and every skill follows it: no
@@ -141,12 +165,16 @@ intercept, without the user having to name the skill.
 ```markdown
 ## Flow control
 
-Planning lives in `planning/` (conventions: `planning/README.md`).
+Planning lives in `planning/` (conventions: `planning/README.md`). Standing instructions for this
+repo, including the release policy, are in `planning/policy.md`: read it before planning or
+release work and follow it.
 
 - When the user mentions something outside the task in hand (a new idea, request, bug, "also",
   "at some point", "for the next version"), don't start it. Run flow-control `capture`: triage it
   into `planning/`, show the one-table triage card, then carry on with the current task.
 - Before any release, publish or delivery step, read the ship gate in `planning/backlog.md`
-  (flow-control `ship-gate`).
+  and the release policy in `planning/policy.md` (flow-control `ship-gate`, `release-policy`).
+- "From now on in this repo…", "always…" about how to work here: record it in
+  `planning/policy.md` (flow-control `capture`).
 - "What's next", "where are we", "I'm back": flow-control `next`.
 ```

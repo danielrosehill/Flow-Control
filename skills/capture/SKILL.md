@@ -22,7 +22,7 @@ When unsure, capture: an item filed by mistake costs one line to drop; a lost on
 
 ## 1. Find the planning files
 
-Read `planning/README.md` (conventions), `planning/backlog.md`, and the current sprint's file if
+Read `planning/README.md` (conventions), `planning/policy.md` (standing instructions), `planning/backlog.md`, and the current sprint's file if
 `backlog.md` links one. These override the defaults in `setup`'s `references/layout.md`. If the repo
 tracks work elsewhere (README or CLAUDE.md says GitHub Issues, a `TODO.md`, `planning/bugs/`
 folders), file there in its format.
@@ -58,6 +58,10 @@ For each item:
   fits it → P1, otherwise P2 for bugs and P3 for the rest.
 - **Decisions** ("from now on we use X", "we're not supporting Y"): not an item; append to
   `planning/decisions.md` with the user's words.
+- **Standing instructions** about how to work in this repo ("from now on in this repo…", "always
+  run the tests before…", "never touch X here"): not an item; append to **Standing instructions**
+  in `planning/policy.md` with the date and the user's words. Release, versioning or QA rules go
+  through `release-policy` instead.
 - **"Just park it" / "don't sort it now"**: append to `planning/inbox.md` untriaged; `next` triages
   it later.
 

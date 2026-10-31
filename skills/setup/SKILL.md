@@ -37,12 +37,15 @@ When `capture` calls this skill mid-task (**quick mode**), ask nothing: use the 
 
 Write the files from [references/layout.md](references/layout.md): `planning/README.md` (the
 conventions, adapted: categories for this kind of project, the repo's existing ids if any, the
-hygiene rule if public), `inbox.md`, `backlog.md`, `decisions.md`. Use absolute dates. Each file
+hygiene rule if public), `inbox.md`, `backlog.md`, `decisions.md`, `policy.md`. Use absolute dates. Each file
 starts with one line saying when and why it was created.
 
 Then add the **Flow control** section from the layout file to the repo's agent instructions file
 (`CLAUDE.md`, or `AGENTS.md` if that's what the repo uses; create a minimal `CLAUDE.md` if neither
 exists). That section is what makes capture an intercept rather than a command.
+
+If the user has said how releases and testing should work here, run `release-policy` with their
+words; otherwise leave the policy's release section as the stub.
 
 If the conversation so far already holds asks or ideas, run `capture` on them now.
 
@@ -52,5 +55,7 @@ Other work may be in progress in the tree: stage only the files this skill creat
 and commit them in one command (`git add <files> && git commit -m "Set up planning scaffold" -- <files>`).
 Push if the repo has a remote and the user's practice is to push.
 
-Reply with the tree created (or the parts added to existing tracking), the categories in use, and
-one line: "From here, just mention things as they come up; I'll file them and keep going."
+Reply with the tree created (or the parts added to existing tracking), the categories in use, one
+line saying a release policy can be applied with `release-policy` (post-facto or classic) if none
+was set, and one line: "From here, just mention things as they come up; I'll file them and keep
+going."
