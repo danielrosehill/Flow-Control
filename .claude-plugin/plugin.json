@@ -1,0 +1,23 @@
+{
+  "name": "flow-control",
+  "version": "0.1.0",
+  "description": "Stay in flow while the project keeps its structure. Capture intercepts ideas, requests and bugs you mention mid-thread, then triages them into the current or next sprint, the backlog or ideas, with a category and a priority, and goes back to the task in hand. Also sets up an in-repo planning scaffold, plans sprints, gates releases until the sprint is done, and answers \"what's next\". Works for code and non-code projects.",
+  "author": {
+    "name": "Daniel Rosehill",
+    "url": "https://github.com/danielrosehill"
+  },
+  "repository": "https://github.com/danielrosehill/Flow-Control",
+  "license": "MIT",
+  "keywords": [
+    "project-management",
+    "capture",
+    "triage",
+    "backlog",
+    "sprints",
+    "priorities",
+    "planning",
+    "release-gate",
+    "flow",
+    "agentic-development"
+  ]
+}
